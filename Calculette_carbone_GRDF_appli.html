@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<meta charset="utf-8" />
+<Title> Calculette carbone pour application </title>
+</head> 
+<style> 
+input {
+  padding: 0.2em; 
+  box-sizing: border-box;
+  width: 100% 
+} 
+label
+{
+	display: block;
+	width: 300px;
+	height: 20px; 
+	float: left;
+}
+.GEScontainer   { 
+
+	display: grid  ;
+	grid-template-columns: 300px 150px 60px 100px  ;
+	grid-template-rows: repeat(8, 1fr)  ; 
+	}
+.GES11 { 
+	grid-column: 1 ; 
+	grid-row:1 ; 
+} 
+.GES12 { 
+	grid-column: 2 ; 
+	grid-row:1 ; 
+} 
+.GES13 { 
+	grid-column: 3 ; 
+	grid-row:1 ; 
+} 
+.GES14 { 
+	grid-column: 4 ; 
+	grid-row:1 ; 
+} 
+.GES21 { 
+	grid-column: 1 ; 
+	grid-row:2	 ; 
+} 
+.GES22 { 
+	grid-column: 2 ; 
+	grid-row:2 ; 
+} 
+.GES23 { 
+	grid-column: 3 ; 
+	grid-row:2 ; 
+} 
+.GES24 { 
+	grid-column: 4 ; 
+	grid-row:2 ; 
+} 
+.GES31 { 
+	grid-column: 1 ; 
+	grid-row:3	 ; 
+} 
+.GES32 { 
+	grid-column: 2 ; 
+	grid-row:3 ; 
+} 
+.GES33 { 
+	grid-column: 3 ; 
+	grid-row:3 ; 
+} 
+.GES34 { 
+	grid-column: 4 ; 
+	grid-row:3 ; 
+} 
+.GES41 { 
+	grid-column: 1 ; 
+	grid-row:4	 ; 
+} 
+.GES42  { 
+	grid-column: 2 ; 
+	grid-row:4 ; 
+} 
+.GES43 { 
+	grid-column: 3 ; 
+	grid-row:4 / 6 ; 
+} 
+.GES44 { 
+	grid-column: 4 ; 
+	grid-row: 4 / 6 ; 
+} 
+.GES51 { 
+	grid-column: 1 ; 
+	grid-row:5	 ; 
+} 
+.GES52 { 
+	grid-column: 2 ; 
+	grid-row:5 ; 
+} 
+.GES53 { 
+	grid-column: 3 ; 
+	grid-row:5 ; 
+} 
+.GES54 { 
+	grid-column: 4 ; 
+	grid-row:5 ; 
+} 
+.GES61 { 
+	grid-column: 1 ; 
+	grid-row:6	 ; 
+} 
+.GES62 { 
+	grid-column: 2 ; 
+	grid-row:6 ; 
+} 
+.GES63 { 
+	grid-column: 3 ; 
+	grid-row:6 ; 
+} 
+.GES64 { 
+	grid-column: 4 ; 
+	grid-row:6 ; 
+} 
+.GES71 { 
+	grid-column: 1 ; 
+	grid-row:7	 ; 
+} 
+.GES72 { 
+	grid-column: 2 / 4; 
+	grid-row:7 ; 
+} 
+.GES73 { 
+	grid-column: 3 ; 
+	grid-row:7 ; 
+} 
+.GES74 { 
+	grid-column: 4 ; 
+	grid-row:7 ; 
+} 
+.GES81 { 
+	grid-column: 1 / 3 ; 
+	grid-row:8	 ; 
+} 
+.GES82 { 
+	grid-column: 2 ; 
+	grid-row:8 ; 
+} 
+.GES83 { 
+	grid-column: 3 / 5; 
+	grid-row:8 ; 
+} 
+.GES84 { 
+	grid-column: 4 ; 
+	grid-row:8 ; 
+} 
+.buttoncontainer
+ { 
+	display: grid  ;
+	grid-template-columns: 1fr 1fr 1fr minmax(100px,200px);
+	grid-template-rows: 1fr 1fr 1fr 1fr  ; 
+	}
+.item1 { 
+	grid-column: 1  ;
+	grid-row: 1  ; 
+	}  
+.item2 { 
+	grid-column: 2  ;
+	grid-row: 1 / 3 ; 
+	
+		} 	
+.item3 { 
+	grid-column: 3  ;
+	grid-row: 1/3  ; 
+	botton : 0 ; 
+	}
+.item4 { 
+	grid-column: 1  ;
+	grid-row: 2  ; 
+	}
+
+.item6 { 
+	grid-column: 1  ;
+	grid-row: 3 ; 
+	}
+.item7 { 
+	grid-column: 2  ;
+	grid-row: 3  ; 
+	}
+.item71 { 
+	grid-column: 3  ;
+	grid-row: 3  ; 
+	}
+.item8 { 
+	grid-column: 1 ;
+	grid-row: 4  ; 
+	}
+	
+.buttonIknow { 
+	background-color : yellow ; 
+	width:100px; 
+	height: 100px ;
+	border-radius : 8px ; 
+	}
+	
+.buttonstartstop { 
+	background-color : blue ; 
+	width:150px; 
+	height: 35px ;
+	border-radius : 8px ; 
+	}
+#container { 
+	display : flex  ;
+	flex-wrap : wrap ; 
+	flex-direction : row ; 
+    align-items: center; 	
+	flex: 2 1 auto ; 
+	}
+ #container > div { 
+    background-color : springgreen ; 
+	font-size : 20px ; 
+	margin : 10px ;
+	border : 1px ; 
+	border-radius : 8px ;
+	padding : 10px ; 
+	min-width : 150  px 
+	}
+@keyframes shrink  {
+    from { width:50px; height:150px; 
+		background-color : springgreen ;}
+    to { width:50px; height:0px; background-color : red ;}
+	}
+	
+#box {
+    width:50px;
+    height:150px;
+    background-color: springgreen ;
+    animation-duration : 3000; 
+	animation : shrink ;
+	}
+
+</style> 
+<script>
+ // Calculette Carbonne développé dans le cadre de l'activite Numerique Resposable de GRDF 
+ // Auteur Dominique Desbois
+ // novembre 2021  
+function mcalculGES() { 
+    VM=document.getElementById("inVM").value;
+	SP=document.getElementById("inSP").value;
+	GO=document.getElementById("inGO").value;
+	MOSE=document.getElementById("inMOSE").value;
+	SE=document.getElementById("inSE").value;
+	MOE=document.getElementById("inMOE").value;
+	
+	VMGES=VM*wVM*365*24/1000*kwhCO2 ;
+	SPGES=SP*wSP*364*24/1000*kwhCO2 ;
+	GOGES= GO * GOCO2A ; 
+	FLUXGES = MOSE * SE * 365 * mowh ;  // flux annuel en wh 
+	FLUXGES = FLUXGES / 1000 * kwhCO2 ; // conversion en kg CO2 
+	MOEGES = MOE * 12 * MOECO2 ; 
+	GES = VMGES + SPGES + GOGES + FLUXGES + MOEGES ; 
+	console.log('GES = ');	
+	if ( GES == 0 )  { 
+			
+			console.log("GES =0 ");
+			pctVM=0  ; 
+			pctSP=0 ; 
+			pctGO=0 ; 
+			pctFLUX=0 ; 
+			pctMOE =0 ;
+			document.getElementById("datatiptext").innerHTML= "Saisir quelque chose  "  ; 
+			
+			} else { 
+
+			document.getElementById("GES").innerHTML =  GES.toFixed(1).toString().concat(" kg eqCO2 / an");
+			pctVM=VMGES/GES*100  ; 
+			pctSP=SPGES/GES*100 ; 
+			pctGO=GOGES/GES*100 ; 
+			pctFLUX=FLUXGES/GES*100 ; 
+			pctMOE = MOEGES / GES * 100 ;
+			} ;
+	document.getElementById("buVM").style.setProperty("width",pctVM.toString().concat("px")) ; 
+	document.getElementById("buSPpct").innerHTML= pctSP.toFixed(1).toString().concat("%") ;
+	document.getElementById("buGOpct").innerHTML= pctGO.toFixed(1).toString().concat("% ") ;
+	document.getElementById("buFLUXpct").innerHTML= pctFLUX.toFixed(1).toString().concat("%") ;
+	document.getElementById("buVMpct").innerHTML= pctVM.toFixed(1).toString().concat("% ") ;
+	document.getElementById("buMOEpct").innerHTML= pctMOE.toFixed(1).toString().concat("% ") ;
+	document.getElementById("buSP").style.setProperty("width",pctSP.toString().concat("px")) ; 
+	document.getElementById("buGO").style.setProperty("width",pctGO.toString().concat("px")) ; 
+	document.getElementById("buFLUX").style.setProperty("width",pctFLUX.toString().concat("px")) ; 
+	document.getElementById("buMOE").style.setProperty("width",pctMOE.toString().concat("px")) ; 
+
+	console.log('pctVM = ' + pctVM);
+		
+	} 
+
+	// ici les coefficients clés pour les calculs 
+	// watt par vm 
+	var wVM;
+	wVM=8 ; 
+	//watt pour un serveur physique 
+	var wSP=200;  
+	
+	// var wGO=10;   
+	var koCO2=0.000007;  // 7 grammes de c02 pour 1 MO de 1 MO 
+	var mowh=0.152 // wh pour 1 MO transmis 
+	var kwhCO2 = 0.08;  // coef de conversion kwh vers C02 avec un mixte elec francais 
+	var MOECO2 = 0.0 ;  // comment peser 1 h de MOE en CO2
+	var GOCO2A = 0.3 ; // un  GO stocké produirait 2 kg de CO2 par an  aux USA source https://medium.com/stanford-magazine/carbon-and-the-cloud-d6f481b79dfe 
+						//  à rapporter en france via application des coéff lié au mixte energétique US/fr ( 0,522 / 0,8 = 6,5) 
+	var compteur =0, score=0,timeron=0 ;
+	compteur = -1; 
+	score = 0  ; 
+	timer=3000;  
+	timeron= 0; 
+	document.addEventListener('DOMContentLoaded', (event) => {
+		console.log('DOM fully loaded and parsed');
+		document.getElementById("inVMtxt").addEventListener("mouseover",(event) => { 
+			console.log("mouse over inVM");
+			document.getElementById("datatiptext").innerHTML= " 8 watts/vm : 'Chiffres clés' Conso IT"  ; 
+			document.getElementById("GES83").innerHTML="Source ADEME"; 
+			document.getElementById("GES83").setAttribute("href","https://normandie.ademe.fr/sites/default/files/chiffres-cles-consommation-energetique-equipements-informatiques.pdf");
+			}) ; 
+		document.getElementById("inSPtxt").addEventListener("mouseover",(event) => { 
+			console.log("mouse over inVM");
+			document.getElementById("datatiptext").innerHTML= "200 watts/sp : 'Chiffres clés' Conso IT"  ; 
+			document.getElementById("GES83").innerHTML="Source ADEME"; 
+			document.getElementById("GES83").setAttribute("href","https://normandie.ademe.fr/sites/default/files/chiffres-cles-consommation-energetique-equipements-informatiques.pdf");
+			}) ; 
+		document.getElementById("inGOtxt").addEventListener("mouseover",(event) => { 
+			console.log("mouse over inVM");
+			document.getElementById("datatiptext").innerHTML= "0,3 kg de CO2/GO.an en FR "  ; 
+			document.getElementById("GES83").innerHTML="Source Standford Mag"; 
+			document.getElementById("GES83").setAttribute("href","https://medium.com/stanford-magazine/carbon-and-the-cloud-d6f481b79dfe")
+			;
+			}) ; 
+						
+		document.getElementById("inFLUXtxt").addEventListener("mouseover",(event) => { 
+			console.log("mouse over inVM");
+			document.getElementById("datatiptext").innerHTML= "0.152 wh/MO transmis"  ; 
+			document.getElementById("GES83").innerHTML="Source Shift Project"; 
+			document.getElementById("GES83").setAttribute("href","https://theshiftproject.org/wp-content/uploads/2019/10/Lean-ICT-Materials-Liens-%C3%A0-t%C3%A9l%C3%A9charger-r%C3%A9par%C3%A9-le-29-10-2019.pdf")
+			; 
+			}) ; 
+			
+		document.getElementById("inSEtxt").addEventListener("mouseover",(event) => { 
+			console.log("mouse over inVM");
+			document.getElementById("datatiptext").innerHTML= "0.152 wh/MO transmis"  ; 
+			document.getElementById("GES83").innerHTML="Source Shift Project"; 
+			document.getElementById("GES83").setAttribute("href","https://theshiftproject.org/wp-content/uploads/2019/10/Lean-ICT-Materials-Liens-%C3%A0-t%C3%A9l%C3%A9charger-r%C3%A9par%C3%A9-le-29-10-2019.pdf")
+			; 
+			}) ; 
+			
+		document.getElementById("inMOEtxt").addEventListener("mouseover",(event) => { 
+			console.log("mouse over MOE");
+			document.getElementById("datatiptext").innerHTML= " "  ; 
+			document.getElementById("GES83").innerHTML=" "; 
+			document.getElementById("GES83").setAttribute("href","https://www.google.com")
+			; 
+			}) ; 
+			
+});
+    
+</script>
+<body>
+
+<div id="container" > 
+<div style="padding:0px;background-color : white"  > <img src="./LOGOGRDF.jpg" alt="LOGO GRDF" >   </div> 
+<div style="align-text:center" > Numerique <br> Responsable </div> 
+<div> Calculette <br>  Carbone  </div> 
+</div> 
+ 
+<h4> Cette calculette vous prédit l'impact carbone de votre application . </h4> 
+<br> 
+
+<div class="GEScontainer" > 
+<div class = "GES11"> 
+
+<label for="inVM" id="inVMtxt"  height="20px" > Total Virtual Machines dédiées : </label> 
+</div> 
+<div class="GES12">
+<input id="inVM" type="number" min="0" step="1" oninput="validity.valid||(value='');" name="inVM" style="witdh:100%" />
+</div> 
+<div class="GES13" id="buVMpct" style="text-align:right;padding-right:10%" "> </div>
+<div class="GES14"> 
+<svg width="100px" height="20px" >
+  <rect id="buVM" width="0px" height="20px"/>
+</svg>
+</div> 
+
+<div class="GES21"> 
+<label for="inSP" id="inSPtxt" > Total Serveurs physiques dédiés : </label> 
+</div>
+<div class="GES22">
+<input id="inSP" type="number" min="0" step="1" oninput="validity.valid||(value='');" name="inSP" >
+</div> 
+<div class="GES23" id="buSPpct" style="text-align:right;padding-right:10% " > </div>
+<div class="GES24">  
+<svg width="100px" height="20px" >
+  <rect id="buSP" width="0px" height="20px"/>
+</svg>
+</div> 
+<div class="GES31"> 
+<label for="inGO" id="inGOtxt"> Stockage en GO : </label> 
+</div> 
+<div class="GES32">
+<input id="inGO" type="number" min="0" step="1" oninput="validity.valid||(value='');" name="inGO" >
+</div> 
+<div class="GES33" id="buGOpct" style="text-align:right;padding-right:10%" "> </div>
+<div class="GES34"> 
+<svg width="100px" height="20px" >
+  <rect id="buGO" width="0px" height="20px"/>
+</svg>
+</div> 
+<div class="GES41"> 
+<label for="inMOSE" id="inFLUXtxt" > Flux Mo par session utilisateur  : </label>
+</div> 
+<div class="GES42"> 
+<input id="inMOSE" type="number" min="0" step="1" oninput="validity.valid||,(value='');" name="inFLUX" >
+</div> 
+<div class="GES43" id="buFLUXpct" style="text-align:right;padding-right:10%;padding-top:12px"  > </div>
+<div class="GES44" style="padding-top:12px">  
+<svg width="100px" height="20px"  >
+  <rect id="buFLUX" width="0px" height="20px"/>
+</svg>
+</div> 
+<div class="GES51"> 
+<label for="inSE" id="inSEtxt" > Nombre de sessions par jour  : </label> 
+</div> 
+<div class="GES52">
+<input id="inSE" type="number" min="0" step="1" oninput="validity.valid||(value='');" name="inSE" > 
+</div> 
+<div class="GES61"> 
+<label for="inMOE" id="inMOEtxt"> Heures de MOE en run par mois : </label> 
+</div> 
+<div class="GES62"> 
+<input id="inMOE" type="number" min="0" step="1" oninput="validity.valid||(value='');" name="inMOE" disabled > 
+</div> 
+<div class="GES63" id="buMOEpct" style="text-align:right;padding-right:10%"  > </div>
+<div class="GES64"> 
+<svg width="100px" height="20px" >
+  <rect id="buMOE" width="0px" height="20px"/>
+</svg>
+</div> 
+<div class="GES71"> 
+<button type="button" id="CalculGES" onclick="mcalculGES()" style="width:220px;height:20px;">Calculer l'empreinte GES </button> 
+</div> 
+<div class="GES72"> 
+<label for="CalculGES" style="text-align:right" >   </label> 
+</div> 
+<div class="GES72"> 
+<span id="GES" style="text-align:end;width:210px;padding-left:10%;font-weight:bold" > </span>  
+</div> 
+<div class="GES81" > 
+<span id="datatiptext" style="font-style:italic;text-align:end;"  > Saisir les caractéristiques de l'application </span></div>
+<div class="GES83" >    
+<a  id="GES83" >   </a> 
+</div> 
+<br> 
+</div> 
+
+
+
+
+
+
+<br> 
+
+
+<br> 
+	
+
+</body>
+</html>

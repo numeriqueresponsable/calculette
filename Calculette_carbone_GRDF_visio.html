@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<meta charset="utf-8" />
+<Title> Calculette carbone pour visio </title>
+</head> 
+<style> 
+
+#container { 
+	display : flex  ;
+	flex-wrap : wrap ; 
+	flex-direction : row ; 
+    align-items: center; 	
+	flex: 2 1 auto ; 
+	}
+#container > div { 
+    background-color : springgreen ; 
+	font-size : 20px ; 
+	margin : 10px ;
+	border : 1px ; 
+	border-radius : 8px ;
+	padding : 10px ; 
+	min-width : 150  px ;
+	}
+	
+.GESheader { 
+	display : grid  ;
+	grid-template-columns: repeat(7, 1fr );
+	grid-template-rows: 1fr 1fr      ; 
+	max-width : 900px ;
+	}
+.GESheader11  {
+	grid-row: 1/3 ; 
+	grid-columns :1/3 ; 
+} 	
+.GESheader13
+ { 	grid-row: 1 ; 
+	grid-column :2/7; 
+} 	
+.GESheader23 
+ { 	grid-row: 2 ; 
+	grid-column :2/7; 
+} 	
+
+
+	
+.GES { 
+	display : grid  ;
+	grid-template-columns: repeat(7, 1fr );
+	grid-template-rows: 1fr 1fr 1fr 30px 30px 1px  1fr  ; 
+	max-width : 900px ;
+	}
+.GES > div  { 
+	margin-left:auto;margin-right:auto;margin-bottom:auto;margin-top:auto;
+	}
+.GES11 { 
+	grid-column: 1/3 ; 
+	grid-row:1/4 ; 
+} 	
+
+.GES13 { 
+	grid-column: 3/5 ; 
+	grid-row:1 ; 
+} 	
+
+.GES15 { 
+	grid-column: 5/7 ; 
+	grid-row:1  ; 
+} 	
+
+.GES23 { 
+	grid-column: 3/5 ; 
+	grid-row:2; 
+} 	
+
+.GES25 { 
+	grid-column: 5/7 ; 
+	grid-row:2 ; 
+} 	
+.GES33 { 
+	grid-column: 3/5 ; 
+	grid-row:3; 
+} 	
+
+.GES35 { 
+	grid-column: 5/7 ; 
+	grid-row:3 ; 
+} 	
+.GES41 { 
+	grid-column: 1/3 ; 
+	grid-row:4 ; 
+} 	
+.GES43 { 
+	grid-column: 3/5 ; 
+	grid-row:4 ; 
+} 
+.GES45 { 
+	grid-column: 5/7 ; 
+	grid-row:4 ; 
+} 
+
+.GES51 { 
+	grid-column: 1 ; 
+	grid-row:5 ; 
+}
+.GES52 { 
+	grid-column: 2; 
+	grid-row:5 ; 
+}
+.GES53 { 
+	grid-column: 3 ; 
+	grid-row:5 ; 
+}
+
+.GES54 { 
+	grid-column: 4 ; 
+	grid-row:5 ; 
+}
+.GES55 { 
+	grid-column: 5 ; 
+	grid-row:5 ; 
+
+}
+.GES56 { 
+	grid-column: 6 ; 
+	grid-row:5 ; 
+
+}
+
+.GES61 { 
+	grid-column: 1/3 ; 
+	grid-row:6 ; 
+} 	
+.GES63 { 
+	grid-column: 3/5 ; 
+	grid-row:6 ; 
+} 
+.GES65 { 
+	grid-column: 5/7 ; 
+	grid-row:6 ; 
+} 
+
+.GES71 { 
+	grid-column: 1 ; 
+	grid-row:7 ; 
+}
+.GES72 { 
+	grid-column: 2; 
+	grid-row:7 ; 
+}
+.GES73 { 
+	grid-column: 3 ; 
+	grid-row:7 ; 
+}
+.GES74 { 
+	grid-column: 4 ; 
+	grid-row:7 ; 
+}
+.GES75 { 
+	grid-column: 5 ; 
+	grid-row:7 ; 
+}
+.GES76 { 
+	grid-column: 6 ; 
+	grid-row:7 ; 
+}
+
+	
+
+
+</style> 
+<script>
+ // Calculette Carbonne développé dans le cadre de l'activite Numerique Resposable de GRDF 
+ // Auteur Dominique Desbois
+ // novembre 2021  
+
+// constantes : 
+	
+	var teamsaudio= 0.0434 ; 			// kgeqC02/minute
+	var teamsvideo = 0.11284 ; 	// kgeqC02/minute
+	var teamsshare= 0.04564 ; 		// kgeqC02/minute
+	var kgc02 = 0;
+ 
+	document.addEventListener('DOMContentLoaded', (event) => {
+		console.log('DOM fully loaded and parsed');
+		document.getElementById('heureaudio').addEventListener('change', function() {
+			console.log('You selected: ', this.value);
+			kgco2=this.value*60*teamsaudio ; 
+			document.getElementById('GES72span').innerHTML=kgco2.toFixed(1).toString().concat(" kgCO2eq") ; 
+			document.getElementById('GES71img').style.opacity="1" ;
+			});
+		document.getElementById('heurevideo').addEventListener('change', function() {
+			console.log('You selected: ', this.value);
+			kgco2=this.value*60*teamsvideo ; 
+			document.getElementById('GES76span').innerHTML=kgco2.toFixed(1).toString().concat(" kgCO2eq") ; 
+			document.getElementById('GES75img').style.opacity="1" ;
+			});
+		document.getElementById('heureshare').addEventListener('change', function() {
+			console.log('You selected: ', this.value);
+			kgco2=this.value*60*teamsshare ; 
+			document.getElementById('GES74span').innerHTML=kgco2.toFixed(1).toString().concat(" kgCO2eq") ; 
+			document.getElementById('GES73img').style.opacity="1" ;
+			});
+		
+	
+			
+});
+    
+</script>
+<body>
+
+<div id="container" > 
+<div style="padding:0px;background-color : white"  > <img src="./LOGOGRDF.jpg" alt="LOGO GRDF" >   </div> 
+<div style="align-text:center" > Numerique <br> Responsable </div> 
+<div> Calculette <br>  Applicative  </div>
+
+<div> Calculette <br>  Visio </div> 
+</div> 
+
+<div class="GESheader" > 
+<div class="GESheader11" style="margin-left:auto;margin-right:auto;margin-bottom:auto;margin-top:auto;" > 
+<img src="./teams.jpg" alt="Teams"  style="width:60px"> 
+</div> 
+<div class = "GESheader13"> 
+<span style="font-weight:bold" > Cette calculette vous prédit l'impact carbone de vos communications Visio Teams
+</span> 
+</div> 
+<div class="GESheader23"> <a href="https://greenspector.com/fr/quelle-application-mobile-de-visioconference-pour-reduire-votre-impact-edition-2021/"> Source </a> 
+
+</div> 
+</div> 
+
+<div class="GES"> 
+<div class="GES11" style="margin-left:auto;margin-right:auto;margin-bottom:auto;margin-top:auto;" > 
+
+<img src="./haut-parleur-symbole-interface-audio_318-53655.jpg" alt="Haut Parleur"  style="width:60px">  
+</div> 
+<div class="GES13">
+<img src="./haut-parleur-symbole-interface-audio_318-53655.jpg" alt="Haut Parleur"  style="width:60px">  
+</div> 
+<div class="GES15"> 
+<img src="./haut-parleur-symbole-interface-audio_318-53655.jpg" alt="Haut Parleur"  style="width:60px">  
+</div> 
+<div class="GES23">
+<img src="./symbole_plus.jpg" alt="plus"  style="width:40px">  
+</div> 
+<div class="GES25"> 
+<img src="./symbole_plus.jpg" alt="plus"  style="width:40px">  
+</div> 
+<div class="GES33">
+<img src="./screenshare.jpg" alt="plus"  style="width:60px">  
+</div> 
+<div class="GES35"> 
+<img src="./screenvideo.jpg" alt="plus"  style="width:60px">  
+</div> 
+<div class="GES41"> <span> Audio seule </span> </div> 
+<div class="GES43"> <span> Audio + share écran </span> </div> 
+<div class="GES45"> <span> Audio + video </span> </div> 
+<div class="GES51" style="margin-right :2%">
+<input id="heureaudio" type="number" min="0" step="1" oninput="validity.valid||(value='');" name="heureaudio" style="width:70px" >
+</div> 
+<div class="GES52" style="margin-left:2%" > 
+<label for="heureaudio" id="heureaudiotxt" > heures </label> 
+</div> 
+<div class="GES53" style="margin-right:2%">
+<input id="heureshare" type="number" min="0" step="1" oninput="validity.valid||(value='');" name="heureshare" style="width:70px">
+</div> 
+<div class="GES54" style="margin-left:2%"> 
+<label for="heureshare" id="heuresharetxt"> heures en share: </label> 
+</div> 
+<div class="GES55" style="margin-right:2%">
+<input id="heurevideo" type="number" min="0" step="1" oninput="validity.valid||(value='');" style="width:70px" name="heurevideo"  >
+</div> 
+<div class="GES56" style="margin-left:2%"> 
+<label for="heurevideo" id="heurevideotxt" >heures en video: </label> 
+</div>
+<div class="GES71"style="margin-right :2%"> 
+<img src="./Xavier.jpg" alt="plus" id="GES71img" style="width:100px;opacity:0.0;">  
+</div> 
+<div class="GES72" style="margin-left :2%;font-weight:bold"> 
+<span id="GES72span"> </span> 
+</div> 
+<div class="GES73"style="margin-right :2%"> 
+<img src="./Xavier.jpg" alt="plus"  id="GES73img" style="width:100px;opacity:0.0;">  
+</div> 
+<div class="GES74" style="margin-left :2%; font-weight:bold"> 
+<span id="GES74span"> </span> 
+</div> 
+<div class="GES75"style="margin-right :2%"   > 
+<img src="./Xavier.jpg" id="GES75img" alt="plus"  style="width:100px;opacity:0.0;"  >  
+</div> 
+
+<div class="GES76" style="margin-left:2%; font-weight:bold"> 
+<span id="GES76span"> </span> 
+</div> 
+
+
+</div> 
+
+
+
+</body>
+</html>
