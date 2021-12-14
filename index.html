@@ -32,7 +32,7 @@ input {
 	display : grid  ;
 	grid-template-columns: repeat(7, 1fr );
 	grid-template-rows: 1fr 1fr      ; 
-	max-width : 900px ;
+	max-width : 950px ;
 	}
 .GESheader11  {
 	grid-row: 1/3 ; 
@@ -222,7 +222,6 @@ function displaymodeop(id) {
 	sid=id.toString() ; 
 	modeopfile="./modeop"; 
 	modeopfile=modeopfile.concat(sid,".jpg") ; 
-	console.log("mode op file" ,  modeopfile );
 	document.getElementById("MODEOP12img").src=modeopfile ;
 	document.getElementById("MODEOP12img").style="width:350px;height:300px"; 
 	switch  (id ) { 
@@ -263,7 +262,6 @@ function modeopnext() {
 			break ; 
 		} 
 	modeopstep=ncpt; 
-	console.log("mode op setp" , ncpt ); 
 	displaymodeop(ncpt) ; 
 	};
 	
@@ -284,7 +282,6 @@ function modeopprev() {
 			break ; 
 		} 
 	modeopstep=ncpt; 
-	console.log("mode op setp" , ncpt ); 
 	displaymodeop(ncpt) ; 
 	};
 
