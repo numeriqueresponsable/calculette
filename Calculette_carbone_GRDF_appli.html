@@ -251,7 +251,11 @@ label
  // Calculette Carbonne développé dans le cadre de l'activite Numerique Resposable de GRDF 
  // Auteur Dominique Desbois
  // novembre 2021  
-function mcalculGES() { 
+ 
+function mcalculGES()  { 
+	// calcul de l'equivalent C02 de l'usage de composants informatiques
+	// vm , serveur physique dedie  , stockage , flux reseau 
+	// la moe n'est pas valorisé  , mais une heure de  MOE serait un indicateur tres intéressant a valoriser ( deplacement, ordi de connexion ,  .. ) 
     VM=document.getElementById("inVM").value;
 	SP=document.getElementById("inSP").value;
 	GO=document.getElementById("inGO").value;
@@ -309,12 +313,12 @@ function mcalculGES() {
 	var wSP=200;  
 	
 	// var wGO=10;   
-	var koCO2=0.000007;  // 7 grammes de c02 pour 1 MO de 1 MO 
+	var koCO2=0.000007;  // 7 grammes de c02 pour 1 ko
 	var mowh=0.152 // wh pour 1 MO transmis 
 	var kwhCO2 = 0.08;  // coef de conversion kwh vers C02 avec un mixte elec francais 
 	var MOECO2 = 0.0 ;  // comment peser 1 h de MOE en CO2
 	var GOCO2A = 0.3 ; // un  GO stocké produirait 2 kg de CO2 par an  aux USA source https://medium.com/stanford-magazine/carbon-and-the-cloud-d6f481b79dfe 
-						//  à rapporter en france via application des coéff lié au mixte energétique US/fr ( 0,522 / 0,8 = 6,5) 
+						//  à rapporter en france via application des coéff lié au mixte energétique US/fr ( 0,522 / 0,8 = 6,5) donc on divise par 6
 	var compteur =0, score=0,timeron=0 ;
 	compteur = -1; 
 	score = 0  ; 
